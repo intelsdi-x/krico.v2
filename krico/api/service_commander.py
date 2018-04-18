@@ -5,6 +5,8 @@ import time
 import datetime
 
 import krico.core.configuration
+import krico.core.database
+import krico.core.exception
 import krico.core.executable.daemon
 import krico.core.executable.interrupt
 import krico.core.logger
@@ -13,7 +15,7 @@ import krico.core.timestamp
 import krico.analysis.classifier
 import krico.analysis.predictor.refresh
 
-import krico.service.api
+import krico.api.service
 
 _configuration = krico.core.configuration.root
 _logger = krico.core.logger.get(__name__)
@@ -26,7 +28,7 @@ class ServiceDispatcher(krico.core.executable.daemon.DaemonDispatcher):
     def _execute(cls):
         _logger.info('Starting the KRICO service daemon...')
 
-        worker = krico.service.api.RestApiWorker()
+        worker = krico.api.service.ApiWorker()
 
         tasks = [
             _PeriodicTask(
@@ -113,6 +115,7 @@ class _PeriodicTask(object):
     @property
     def name(self):
         return self.__name
+
 
 def main():
     try:
