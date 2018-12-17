@@ -31,7 +31,7 @@ class Host(UserType):
 
 
 class Flavor(UserType):
-    vcups = columns.Integer()
+    vcpus = columns.Integer()
     disk = columns.Integer()
     ram = columns.Integer()
     name = columns.Text()
@@ -55,7 +55,7 @@ class ClassifierInstance(Model):
     category = columns.Text()
     name = columns.Text()
     configuration_id = columns.Text()
-    parameters = columns.Map(columns.Text(), columns.Integer())
+    parameters = columns.Map(columns.Text(), columns.Double())
     host_aggregate = columns.UserDefinedType(Host)
     image = columns.Text()
     host = columns.Text()
@@ -142,7 +142,7 @@ def fill(classifier_data_path, predictor_data_path):
                 cpu=row['host_aggregate']['cpu']
             ),
             flavor=krico.database.Flavor(
-                vcups=row['flavor']['vcpus'],
+                vcpus=row['flavor']['vcpus'],
                 disk=row['flavor']['disk'],
                 ram=row['flavor']['ram'],
                 name=row['flavor']['name']
