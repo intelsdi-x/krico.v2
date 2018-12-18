@@ -43,3 +43,8 @@ class ApiClient(object):
         workloads_categories = self.stub.WorkloadsCategories(
             api_messages.WorkloadsCategoriesRequest())
         return workloads_categories
+
+    def load_swan_experiment(self, experiment_id):
+        self.stub.LoadSwanExperiment(api_messages.LoadSwanExperimentRequest(
+            experiment_id=experiment_id
+        ))

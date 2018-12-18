@@ -7,7 +7,6 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
@@ -19,7 +18,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='api.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\tapi.proto\"&\n\x0f\x43lassifyRequest\x12\x13\n\x0binstance_id\x18\x01 \x01(\t\")\n\x10\x43lassifyResponse\x12\x15\n\rclassified_as\x18\x01 \x01(\t\"j\n\x13PredictRequirements\x12\x13\n\x0b\x63pu_threads\x18\x01 \x01(\x01\x12\x11\n\tdisk_iops\x18\x02 \x01(\x01\x12\x19\n\x11network_bandwidth\x18\x03 \x01(\x01\x12\x10\n\x08ram_size\x18\x04 \x01(\x01\"t\n\x0ePredictRequest\x12\x10\n\x08\x63\x61tegory\x18\x01 \x01(\t\x12\r\n\x05image\x18\x02 \x01(\t\x12\x12\n\nparameters\x18\x03 \x03(\t\x12\x19\n\x11\x61vailability_zone\x18\x04 \x01(\t\x12\x12\n\nallocation\x18\x05 \x01(\t\"=\n\x0fPredictResponse\x12*\n\x0crequirements\x18\x01 \x03(\x0b\x32\x14.PredictRequirements\"\x1a\n\x18RefreshClassifierRequest\"\x1b\n\x19RefreshClassifierResponse\"\x19\n\x17RefreshPredictorRequest\"\x1a\n\x18RefreshPredictorResponse\"\x19\n\x17RefreshInstancesRequest\"\x1a\n\x18RefreshInstancesResponse\"4\n\x10WorkloadCategory\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nparameters\x18\x02 \x03(\t\"\x1c\n\x1aWorkloadsCategoriesRequest\"N\n\x1bWorkloadsCategoriesResponse\x12/\n\x14workloads_categories\x18\x01 \x03(\x0b\x32\x11.WorkloadCategory2\xa0\x03\n\x03\x41pi\x12\x31\n\x08\x43lassify\x12\x10.ClassifyRequest\x1a\x11.ClassifyResponse\"\x00\x12.\n\x07Predict\x12\x0f.PredictRequest\x1a\x10.PredictResponse\"\x00\x12L\n\x11RefreshClassifier\x12\x19.RefreshClassifierRequest\x1a\x1a.RefreshClassifierResponse\"\x00\x12I\n\x10RefreshPredictor\x12\x18.RefreshPredictorRequest\x1a\x19.RefreshPredictorResponse\"\x00\x12I\n\x10RefreshInstances\x12\x18.RefreshInstancesRequest\x1a\x19.RefreshInstancesResponse\"\x00\x12R\n\x13WorkloadsCategories\x12\x1b.WorkloadsCategoriesRequest\x1a\x1c.WorkloadsCategoriesResponse\"\x00\x62\x06proto3')
+  serialized_options=None,
+  serialized_pb=_b('\n\tapi.proto\"&\n\x0f\x43lassifyRequest\x12\x13\n\x0binstance_id\x18\x01 \x01(\t\")\n\x10\x43lassifyResponse\x12\x15\n\rclassified_as\x18\x01 \x01(\t\"j\n\x13PredictRequirements\x12\x13\n\x0b\x63pu_threads\x18\x01 \x01(\x01\x12\x11\n\tdisk_iops\x18\x02 \x01(\x01\x12\x19\n\x11network_bandwidth\x18\x03 \x01(\x01\x12\x10\n\x08ram_size\x18\x04 \x01(\x01\"q\n\x0ePredictRequest\x12\x10\n\x08\x63\x61tegory\x18\x01 \x01(\t\x12\r\n\x05image\x18\x02 \x01(\t\x12\x12\n\nparameters\x18\x03 \x03(\t\x12\x16\n\x0ehost_aggregate\x18\x04 \x01(\t\x12\x12\n\nallocation\x18\x05 \x01(\t\"=\n\x0fPredictResponse\x12*\n\x0crequirements\x18\x01 \x03(\x0b\x32\x14.PredictRequirements\"\x1a\n\x18RefreshClassifierRequest\"\x1b\n\x19RefreshClassifierResponse\"\x19\n\x17RefreshPredictorRequest\"\x1a\n\x18RefreshPredictorResponse\"\x19\n\x17RefreshInstancesRequest\"\x1a\n\x18RefreshInstancesResponse\"4\n\x10WorkloadCategory\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nparameters\x18\x02 \x03(\t\"\x1c\n\x1aWorkloadsCategoriesRequest\"N\n\x1bWorkloadsCategoriesResponse\x12/\n\x14workloads_categories\x18\x01 \x03(\x0b\x32\x11.WorkloadCategory\"2\n\x19LoadSwanExperimentRequest\x12\x15\n\rexperiment_id\x18\x01 \x01(\t\"\x1c\n\x1aLoadSwanExperimentResponse2\xf1\x03\n\x03\x41pi\x12\x31\n\x08\x43lassify\x12\x10.ClassifyRequest\x1a\x11.ClassifyResponse\"\x00\x12.\n\x07Predict\x12\x0f.PredictRequest\x1a\x10.PredictResponse\"\x00\x12L\n\x11RefreshClassifier\x12\x19.RefreshClassifierRequest\x1a\x1a.RefreshClassifierResponse\"\x00\x12I\n\x10RefreshPredictor\x12\x18.RefreshPredictorRequest\x1a\x19.RefreshPredictorResponse\"\x00\x12I\n\x10RefreshInstances\x12\x18.RefreshInstancesRequest\x1a\x19.RefreshInstancesResponse\"\x00\x12R\n\x13WorkloadsCategories\x12\x1b.WorkloadsCategoriesRequest\x1a\x1c.WorkloadsCategoriesResponse\"\x00\x12O\n\x12LoadSwanExperiment\x12\x1a.LoadSwanExperimentRequest\x1a\x1b.LoadSwanExperimentResponse\"\x00\x62\x06proto3')
 )
 
 
@@ -38,14 +38,14 @@ _CLASSIFYREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -69,14 +69,14 @@ _CLASSIFYRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -100,35 +100,35 @@ _PREDICTREQUIREMENTS = _descriptor.Descriptor(
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='disk_iops', full_name='PredictRequirements.disk_iops', index=1,
       number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='network_bandwidth', full_name='PredictRequirements.network_bandwidth', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ram_size', full_name='PredictRequirements.ram_size', index=3,
       number=4, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -152,49 +152,49 @@ _PREDICTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='image', full_name='PredictRequest.image', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='parameters', full_name='PredictRequest.parameters', index=2,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='availability_zone', full_name='PredictRequest.availability_zone', index=3,
+      name='host_aggregate', full_name='PredictRequest.host_aggregate', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='allocation', full_name='PredictRequest.allocation', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=204,
-  serialized_end=320,
+  serialized_end=317,
 )
 
 
@@ -211,21 +211,21 @@ _PREDICTRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=322,
-  serialized_end=383,
+  serialized_start=319,
+  serialized_end=380,
 )
 
 
@@ -242,14 +242,14 @@ _REFRESHCLASSIFIERREQUEST = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=385,
-  serialized_end=411,
+  serialized_start=382,
+  serialized_end=408,
 )
 
 
@@ -266,14 +266,14 @@ _REFRESHCLASSIFIERRESPONSE = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=413,
-  serialized_end=440,
+  serialized_start=410,
+  serialized_end=437,
 )
 
 
@@ -290,14 +290,14 @@ _REFRESHPREDICTORREQUEST = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=442,
-  serialized_end=467,
+  serialized_start=439,
+  serialized_end=464,
 )
 
 
@@ -314,14 +314,14 @@ _REFRESHPREDICTORRESPONSE = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=469,
-  serialized_end=495,
+  serialized_start=466,
+  serialized_end=492,
 )
 
 
@@ -338,14 +338,14 @@ _REFRESHINSTANCESREQUEST = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=497,
-  serialized_end=522,
+  serialized_start=494,
+  serialized_end=519,
 )
 
 
@@ -362,14 +362,14 @@ _REFRESHINSTANCESRESPONSE = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=524,
-  serialized_end=550,
+  serialized_start=521,
+  serialized_end=547,
 )
 
 
@@ -386,28 +386,28 @@ _WORKLOADCATEGORY = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='parameters', full_name='WorkloadCategory.parameters', index=1,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=552,
-  serialized_end=604,
+  serialized_start=549,
+  serialized_end=601,
 )
 
 
@@ -424,14 +424,14 @@ _WORKLOADSCATEGORIESREQUEST = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=606,
-  serialized_end=634,
+  serialized_start=603,
+  serialized_end=631,
 )
 
 
@@ -448,21 +448,76 @@ _WORKLOADSCATEGORIESRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=636,
-  serialized_end=714,
+  serialized_start=633,
+  serialized_end=711,
+)
+
+
+_LOADSWANEXPERIMENTREQUEST = _descriptor.Descriptor(
+  name='LoadSwanExperimentRequest',
+  full_name='LoadSwanExperimentRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='experiment_id', full_name='LoadSwanExperimentRequest.experiment_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=713,
+  serialized_end=763,
+)
+
+
+_LOADSWANEXPERIMENTRESPONSE = _descriptor.Descriptor(
+  name='LoadSwanExperimentResponse',
+  full_name='LoadSwanExperimentResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=765,
+  serialized_end=793,
 )
 
 _PREDICTRESPONSE.fields_by_name['requirements'].message_type = _PREDICTREQUIREMENTS
@@ -481,6 +536,8 @@ DESCRIPTOR.message_types_by_name['RefreshInstancesResponse'] = _REFRESHINSTANCES
 DESCRIPTOR.message_types_by_name['WorkloadCategory'] = _WORKLOADCATEGORY
 DESCRIPTOR.message_types_by_name['WorkloadsCategoriesRequest'] = _WORKLOADSCATEGORIESREQUEST
 DESCRIPTOR.message_types_by_name['WorkloadsCategoriesResponse'] = _WORKLOADSCATEGORIESRESPONSE
+DESCRIPTOR.message_types_by_name['LoadSwanExperimentRequest'] = _LOADSWANEXPERIMENTREQUEST
+DESCRIPTOR.message_types_by_name['LoadSwanExperimentResponse'] = _LOADSWANEXPERIMENTRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ClassifyRequest = _reflection.GeneratedProtocolMessageType('ClassifyRequest', (_message.Message,), dict(
@@ -581,6 +638,20 @@ WorkloadsCategoriesResponse = _reflection.GeneratedProtocolMessageType('Workload
   ))
 _sym_db.RegisterMessage(WorkloadsCategoriesResponse)
 
+LoadSwanExperimentRequest = _reflection.GeneratedProtocolMessageType('LoadSwanExperimentRequest', (_message.Message,), dict(
+  DESCRIPTOR = _LOADSWANEXPERIMENTREQUEST,
+  __module__ = 'api_pb2'
+  # @@protoc_insertion_point(class_scope:LoadSwanExperimentRequest)
+  ))
+_sym_db.RegisterMessage(LoadSwanExperimentRequest)
+
+LoadSwanExperimentResponse = _reflection.GeneratedProtocolMessageType('LoadSwanExperimentResponse', (_message.Message,), dict(
+  DESCRIPTOR = _LOADSWANEXPERIMENTRESPONSE,
+  __module__ = 'api_pb2'
+  # @@protoc_insertion_point(class_scope:LoadSwanExperimentResponse)
+  ))
+_sym_db.RegisterMessage(LoadSwanExperimentResponse)
+
 
 
 _API = _descriptor.ServiceDescriptor(
@@ -588,9 +659,9 @@ _API = _descriptor.ServiceDescriptor(
   full_name='Api',
   file=DESCRIPTOR,
   index=0,
-  options=None,
-  serialized_start=717,
-  serialized_end=1133,
+  serialized_options=None,
+  serialized_start=796,
+  serialized_end=1293,
   methods=[
   _descriptor.MethodDescriptor(
     name='Classify',
@@ -599,7 +670,7 @@ _API = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CLASSIFYREQUEST,
     output_type=_CLASSIFYRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict',
@@ -608,7 +679,7 @@ _API = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_PREDICTREQUEST,
     output_type=_PREDICTRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='RefreshClassifier',
@@ -617,7 +688,7 @@ _API = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_REFRESHCLASSIFIERREQUEST,
     output_type=_REFRESHCLASSIFIERRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='RefreshPredictor',
@@ -626,7 +697,7 @@ _API = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_REFRESHPREDICTORREQUEST,
     output_type=_REFRESHPREDICTORRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='RefreshInstances',
@@ -635,7 +706,7 @@ _API = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_REFRESHINSTANCESREQUEST,
     output_type=_REFRESHINSTANCESRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='WorkloadsCategories',
@@ -644,7 +715,16 @@ _API = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_WORKLOADSCATEGORIESREQUEST,
     output_type=_WORKLOADSCATEGORIESRESPONSE,
-    options=None,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='LoadSwanExperiment',
+    full_name='Api.LoadSwanExperiment',
+    index=6,
+    containing_service=None,
+    input_type=_LOADSWANEXPERIMENTREQUEST,
+    output_type=_LOADSWANEXPERIMENTRESPONSE,
+    serialized_options=None,
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_API)

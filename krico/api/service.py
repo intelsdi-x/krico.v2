@@ -18,6 +18,7 @@ import krico.core
 import krico.core.exception
 import krico.core.logger
 import krico.database
+import krico.database.swan
 
 from krico.api.proto import api_pb2 as api_messages
 from krico.api.proto import api_pb2_grpc as api_service
@@ -57,6 +58,10 @@ class Api(api_service.ApiServicer):
     def WorkloadsCategories(self, request, context):
         return api_messages.WorkloadsCategoriesResponse(
             workloads_categories=_configuration['workloads']['categories'])
+
+    def LoadSwanExperiment(self, request, context):
+        krico.database.swan.fill(request.experiment_id)
+        api_messages.LoadSwanExperimentResponse()
 
 
 class ApiWorker(Thread):

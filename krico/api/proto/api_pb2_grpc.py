@@ -44,6 +44,11 @@ class ApiStub(object):
         request_serializer=api__pb2.WorkloadsCategoriesRequest.SerializeToString,
         response_deserializer=api__pb2.WorkloadsCategoriesResponse.FromString,
         )
+    self.LoadSwanExperiment = channel.unary_unary(
+        '/Api/LoadSwanExperiment',
+        request_serializer=api__pb2.LoadSwanExperimentRequest.SerializeToString,
+        response_deserializer=api__pb2.LoadSwanExperimentResponse.FromString,
+        )
 
 
 class ApiServicer(object):
@@ -92,6 +97,13 @@ class ApiServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def LoadSwanExperiment(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_ApiServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -124,6 +136,11 @@ def add_ApiServicer_to_server(servicer, server):
           servicer.WorkloadsCategories,
           request_deserializer=api__pb2.WorkloadsCategoriesRequest.FromString,
           response_serializer=api__pb2.WorkloadsCategoriesResponse.SerializeToString,
+      ),
+      'LoadSwanExperiment': grpc.unary_unary_rpc_method_handler(
+          servicer.LoadSwanExperiment,
+          request_deserializer=api__pb2.LoadSwanExperimentRequest.FromString,
+          response_serializer=api__pb2.LoadSwanExperimentResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

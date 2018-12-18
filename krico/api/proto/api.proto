@@ -7,6 +7,7 @@ service Api {
     rpc RefreshPredictor (RefreshPredictorRequest) returns (RefreshPredictorResponse) {}
     rpc RefreshInstances (RefreshInstancesRequest) returns (RefreshInstancesResponse) {}
     rpc WorkloadsCategories (WorkloadsCategoriesRequest) returns (WorkloadsCategoriesResponse) {}
+    rpc LoadSwanExperiment (LoadSwanExperimentRequest) returns (LoadSwanExperimentResponse) {}
 }
 
 // CLASSIFY
@@ -76,4 +77,13 @@ message WorkloadsCategoriesRequest {
 
 message WorkloadsCategoriesResponse {
     repeated WorkloadCategory workloads_categories = 1;
+}
+
+// SWAN integration
+message LoadSwanExperimentRequest {
+    string experiment_id = 1;
+}
+
+message LoadSwanExperimentResponse {
+
 }
