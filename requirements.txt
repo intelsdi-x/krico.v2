@@ -5,3 +5,5 @@ cassandra-driver
 pytest
 mock
 keras
+protobuf
+Theano

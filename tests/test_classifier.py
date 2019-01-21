@@ -8,12 +8,12 @@ class TestEnoughSamples(object):
     @mock.patch('krico.database.ClassifierInstance')
     def test_if_not_enough_samples(self, mock_classifier_instance):
         mock_classifier_instance.objects.filter.return_value.allow_filtering.return_value.count.return_value = 0
-        assert krico.analysis.classifier._enough_samples('configuration_id') is False
+        assert krico.analysis.classifier._enough_samples('category', 'configuration_id') is False
 
     @mock.patch('krico.database.ClassifierInstance')
     def test_if_enough_samples(self, mock_classifier_instance):
         mock_classifier_instance.objects.filter.return_value.allow_filtering.return_value.count.return_value = 80
-        assert krico.analysis.classifier._enough_samples('configuration_id') is True
+        assert krico.analysis.classifier._enough_samples('category', 'configuration_id') is True
 
 
 class TestClassifier(object):

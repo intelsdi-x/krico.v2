@@ -10,6 +10,7 @@ import keras
 
 import krico.analysis.converter
 import krico.analysis.dataprovider
+import krico.analysis.keras_utils
 import krico.core
 import krico.core.exception
 import krico.core.logger
@@ -26,6 +27,7 @@ class _Classifier(object):
     def __init__(self, configuration_id):
         self.configuration_id = configuration_id
         self.x_maxima = []
+        krico.analysis.keras_utils.set_backend(_configuration['keras_backend'])
         self._create_model()
         self._compile_model()
 
@@ -37,7 +39,9 @@ class _Classifier(object):
         x = keras.utils.normalize(data[0])
 
         # Convert y for categorical_crossentropy loss function
-        y = keras.utils.to_categorical(data[1])
+        y = keras.utils.to_categorical(
+            y=data[1],
+            num_classes=len(krico.analysis.dataprovider.CATEGORIES))
 
         epochs = len(data[0])
 
@@ -134,20 +138,39 @@ def refresh():
         network.delete()
 
     for host_aggregate in krico.analysis.dataprovider.get_host_aggregates():
-        if _enough_samples(host_aggregate.configuration_id):
-            _create_and_save_classifier(host_aggregate.configuration_id)
+        _logger.info('Refreshing classifier for "{}" host aggregate'.format(
+            host_aggregate.configuration_id
+        ))
+
+        for category in krico.analysis.dataprovider.CATEGORIES:
+            if _enough_samples(category, host_aggregate.configuration_id):
+                _create_and_save_classifier(category,
+                                            host_aggregate.configuration_id)
+            else:
+                _logger.warning(
+                    'Not enough samples for "{}" host aggregate '
+                    'and "{}" category'.format(
+                        host_aggregate.configuration_id, category))
 
 
-def _create_and_save_classifier(configuration_id):
+def _create_and_save_classifier(category, configuration_id):
 
     learning_set = krico.analysis.dataprovider.get_classifier_learning_set(
+        category,
         configuration_id)
 
-    classifier = _Classifier(configuration_id)
+    classifier = krico.database.ClassifierNetwork.objects.filter(
+        configuration_id=configuration_id
+    ).allow_filtering().first()
+
+    if not classifier:
+        classifier = _Classifier(configuration_id)
+    else:
+        classifier = pickle.load(classifier.network)
+
     classifier.train(learning_set)
 
     krico.database.ClassifierNetwork.create(
-        id=uuid.uuid4(),
         configuration_id=configuration_id,
         network=pickle.dumps(classifier)
     )
@@ -166,15 +189,14 @@ def _load_classifier(configuration_id):
     return pickle.loads(classifier.network)
 
 
-def _enough_samples(configuration_id):
-    for category in krico.analysis.dataprovider.CATEGORIES:
+def _enough_samples(category, configuration_id):
 
-        sample_count = krico.database.ClassifierInstance.objects.filter(
-            configuration_id=configuration_id,
-            category=category
-        ).allow_filtering().count()
+    sample_count = krico.database.ClassifierInstance.objects.filter(
+        configuration_id=configuration_id,
+        category=category
+    ).allow_filtering().count()
 
-        if sample_count < _configuration['minimal_samples']:
-            return False
+    if sample_count < _configuration['minimal_samples']:
+        return False
 
     return True

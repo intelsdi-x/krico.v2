@@ -76,11 +76,13 @@ def get_images_names(category):
     return images
 
 
-def get_classifier_learning_set(configuration_id):
+def get_classifier_learning_set(category, configuration_id):
     """Prepare classifier learning data for specific host aggregate.
 
     Keyword arguments:
     ------------------
+    category: string
+        Name of category.
     configuration_id : string
         Name of host aggregate.
 
@@ -93,7 +95,8 @@ def get_classifier_learning_set(configuration_id):
     y = []
 
     instance_query = krico.database.ClassifierInstance.objects.filter(
-        configuration_id=configuration_id
+        configuration_id=configuration_id,
+        category=category
     ).allow_filtering()
 
     for instance in instance_query:
