@@ -11,15 +11,15 @@ DROP TYPE IF exists krico.host;
 DROP TYPE IF exists krico.flavor;
 
 CREATE TYPE krico.host (
-  disk map<text,int>,
-  ram map<text,int>,
+  disk map<text,text>,
+  ram map<text,text>,
   name text,
   configuration_id text,
-  cpu map<text,int>
+  cpu map<text,text>
 );
 
 CREATE TYPE krico.flavor (
-  vcups int,
+  vcpus int,
   disk int,
   ram int,
   name text
@@ -28,9 +28,9 @@ CREATE TYPE krico.flavor (
 CREATE TABLE krico.host_aggregate (
   configuration_id text PRIMARY KEY,
   name text,
-  cpu map<text,int>,
-  ram map<text,int>,
-  disk map<text,int>
+  cpu map<text,text>,
+  ram map<text,text>,
+  disk map<text,text>
 );
 
 CREATE TABLE krico.image (
@@ -39,11 +39,11 @@ CREATE TABLE krico.image (
 );
 
 CREATE TABLE krico.classifier_instance (
-  id uuid PRIMARY KEY,
+  id uuid,
   category text,
   name text,
   configuration_id text,
-  parameters map<text,int>,
+  parameters map<text,double>,
   host_aggregate FROZEN<host>,
   image text,
   host text,
@@ -51,7 +51,8 @@ CREATE TABLE krico.classifier_instance (
   load_measured map<text,double>,
   stop_time timestamp,
   flavor FROZEN<flavor>,
-  start_time timestamp
+  start_time timestamp,
+  PRIMARY KEY ((configuration_id, category), id)
 );
 
 CREATE TABLE krico.classifier_statistic (
@@ -63,9 +64,9 @@ CREATE TABLE krico.classifier_statistic (
 );
 
 CREATE TABLE krico.classifier_network (
-  id uuid PRIMARY KEY,
   configuration_id text,
-  network blob
+  network blob,
+  PRIMARY KEY(configuration_id)
 );
 
 CREATE TABLE krico.predictor_instance (
@@ -74,7 +75,7 @@ CREATE TABLE krico.predictor_instance (
   category text,
   image text,
   requirements map<text,double>,
-  parameters map<text,int>
+  parameters map<text,double>
 );
 
 CREATE TABLE krico.predictor_network (

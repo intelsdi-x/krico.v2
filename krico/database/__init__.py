@@ -23,11 +23,11 @@ _configuration = krico.core.configuration['database']
 
 
 class Host(UserType):
-    disk = columns.Map(columns.Text(), columns.Integer())
-    ram = columns.Map(columns.Text(), columns.Integer())
+    disk = columns.Map(columns.Text(), columns.Text())
+    ram = columns.Map(columns.Text(), columns.Text())
     name = columns.Text()
     configuration_id = columns.Text()
-    cpu = columns.Map(columns.Text(), columns.Integer())
+    cpu = columns.Map(columns.Text(), columns.Text())
 
 
 class Flavor(UserType):
@@ -40,9 +40,9 @@ class Flavor(UserType):
 class HostAggregate(Model):
     configuration_id = columns.Text(primary_key=True)
     name = columns.Text()
-    cpu = columns.Map(columns.Text(), columns.Integer())
-    ram = columns.Map(columns.Text(), columns.Integer())
-    disk = columns.Map(columns.Text(), columns.Integer())
+    cpu = columns.Map(columns.Text(), columns.Text())
+    ram = columns.Map(columns.Text(), columns.Text())
+    disk = columns.Map(columns.Text(), columns.Text())
 
 
 class Image(Model):
@@ -52,9 +52,9 @@ class Image(Model):
 
 class ClassifierInstance(Model):
     id = columns.UUID(primary_key=True)
-    category = columns.Text()
+    category = columns.Text(partition_key=True)
     name = columns.Text()
-    configuration_id = columns.Text()
+    configuration_id = columns.Text(partition_key=True)
     parameters = columns.Map(columns.Text(), columns.Double())
     host_aggregate = columns.UserDefinedType(Host)
     image = columns.Text()
@@ -67,8 +67,7 @@ class ClassifierInstance(Model):
 
 
 class ClassifierNetwork(Model):
-    id = columns.UUID(primary_key=True)
-    configuration_id = columns.Text()
+    configuration_id = columns.Text(primary_key=True)
     network = columns.Blob()
 
 
@@ -77,7 +76,7 @@ class PredictorInstance(Model):
     instance_id = columns.Text()
     category = columns.Text()
     image = columns.Text()
-    parameters = columns.Map(columns.Text(), columns.Integer())
+    parameters = columns.Map(columns.Text(), columns.Double())
     requirements = columns.Map(columns.Text(), columns.Double())
 
 
