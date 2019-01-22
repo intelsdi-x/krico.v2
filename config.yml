@@ -1,5 +1,5 @@
 database:
-    host: localhost
+    host: 100.65.192.12
     port: 9042
     keyspace: krico
     replication_factor: 1
@@ -51,7 +51,7 @@ classifier:
   validation_split: 0.35
   minimal_samples: 80
   default_configuration_id: krico-cpu-48-10-ram-64-40-disk-1780-400
-
+  keras_backend: theano
   metrics:
     - 'cpu:time'
     - 'ram:used'
@@ -72,6 +72,7 @@ predictor:
   validation_split: 0.35
   minimal_samples: 10
   default_image: default
+  keras_backend: theano
 
   requirements:
     - disk_iops

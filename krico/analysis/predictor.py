@@ -12,6 +12,7 @@ import keras
 
 import krico.analysis.converter
 import krico.analysis.dataprovider
+import krico.analysis.keras_utils
 import krico.core
 import krico.core.exception
 import krico.core.logger
@@ -28,6 +29,7 @@ class _Predictor(object):
         self.image = image
         self.category = category
         self.x_maxima = []
+        krico.analysis.keras_utils.set_backend(_configuration['keras_backend'])
         self._create_model()
         self._compile_model()
 
