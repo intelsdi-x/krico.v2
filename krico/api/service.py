@@ -61,7 +61,7 @@ class Api(api_service.ApiServicer):
 
     def LoadSwanExperiment(self, request, context):
         krico.database.swan.fill(request.experiment_id)
-        api_messages.LoadSwanExperimentResponse()
+        return api_messages.LoadSwanExperimentResponse()
 
 
 class ApiWorker(Thread):
